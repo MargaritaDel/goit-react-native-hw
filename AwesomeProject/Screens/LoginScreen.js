@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,9 +24,9 @@ export default function LoginScreen() {
         style={isFocusedPassword ? styles.focusedPassword : styles.password}
         onFocus={() => setisFocusedPassword(true)}
       />
-      <Pressable style={styles.button} onPress={() => console.log('click')}>
-        <Text style={styles.text}>Увійти</Text>
-      </Pressable>
+      <TouchableOpacity style={styles.button} onPress={() => console.log('click')}>
+        <Text style={styles.buttonText}>Увійти</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Немає акаунту? Зареєструватися</Text>
     </View>
   );
@@ -33,8 +34,9 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 323,
+    marginBottom: 150,
     backgroundColor: '#fff',
+   
   },
   input: {
     height: 50,
@@ -96,7 +98,6 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 16,
-    marginBottom: 134,
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 19,
@@ -108,5 +109,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF6C00',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#fff',
+    textAlign: 'center',
   },
 });
